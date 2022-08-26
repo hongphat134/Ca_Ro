@@ -86,7 +86,8 @@ namespace Caro
             lblCoolTime.Visible = flag;
             prcbCoolTime.Visible = flag;
             lblNguoiChoi.Visible = flag;
-            txtNguoiChoi.Visible = flag;     
+            txtNguoiChoi.Visible = flag;
+            btnMenu.Visible = flag;
         }
 
         private void Load_BGGame(bool flag)
@@ -95,7 +96,7 @@ namespace Caro
             btnPvsP.Visible = flag;
             lblLogo.Visible = flag;
             ptrbLeftLogoGame.Visible = flag;
-            ptrbRightLogoGame.Visible = flag;
+            ptrbRightLogoGame.Visible = flag;            
         }
         private void Form_Caro_Load(object sender, EventArgs e)
         {
@@ -125,6 +126,13 @@ namespace Caro
         private void btnPvsE_Click(object sender, EventArgs e)
         {
             ngườiVsMáyToolStripMenuItem_Click(sender, e);
+        }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            Load_BGGame(true); Load_UserInfo(false);
+            banco.Controls.Clear();
+            Controls.Remove(banco);
         }
     }
 }

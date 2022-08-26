@@ -50,6 +50,7 @@
             this.ptrbLeftLogoGame = new System.Windows.Forms.PictureBox();
             this.ptrPhoto = new System.Windows.Forms.PictureBox();
             this.ptrbRightLogoGame = new System.Windows.Forms.PictureBox();
+            this.btnMenu = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptrbLeftLogoGame)).BeginInit();
@@ -190,12 +191,12 @@
             this.btnPvsP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btnPvsP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnPvsP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPvsP.ForeColor = System.Drawing.Color.Yellow;
+            this.btnPvsP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnPvsP.Location = new System.Drawing.Point(293, 235);
             this.btnPvsP.Name = "btnPvsP";
             this.btnPvsP.Size = new System.Drawing.Size(241, 118);
             this.btnPvsP.TabIndex = 9;
-            this.btnPvsP.Text = "People vs People";
+            this.btnPvsP.Text = "PEOPLE VS PEOPLE";
             this.btnPvsP.UseVisualStyleBackColor = false;
             this.btnPvsP.Click += new System.EventHandler(this.btnPvsP_Click);
             // 
@@ -203,12 +204,12 @@
             // 
             this.btnPvsE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btnPvsE.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPvsE.ForeColor = System.Drawing.Color.Yellow;
+            this.btnPvsE.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnPvsE.Location = new System.Drawing.Point(293, 383);
             this.btnPvsE.Name = "btnPvsE";
             this.btnPvsE.Size = new System.Drawing.Size(241, 118);
             this.btnPvsE.TabIndex = 10;
-            this.btnPvsE.Text = "People vs AI";
+            this.btnPvsE.Text = "PEOPLE VS AI";
             this.btnPvsE.UseVisualStyleBackColor = false;
             this.btnPvsE.Click += new System.EventHandler(this.btnPvsE_Click);
             // 
@@ -250,12 +251,28 @@
             this.ptrbRightLogoGame.TabIndex = 12;
             this.ptrbRightLogoGame.TabStop = false;
             // 
+            // btnMenu
+            // 
+            this.btnMenu.BackColor = System.Drawing.Color.Snow;
+            this.btnMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnMenu.Location = new System.Drawing.Point(649, 235);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(158, 68);
+            this.btnMenu.TabIndex = 16;
+            this.btnMenu.Text = "RETURN TO MENU";
+            this.btnMenu.UseVisualStyleBackColor = false;
+            this.btnMenu.Visible = false;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
+            // 
             // Form_Caro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Green;
             this.ClientSize = new System.Drawing.Size(819, 605);
+            this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.ptrbLeftLogoGame);
             this.Controls.Add(this.btnPvsE);
@@ -307,6 +324,7 @@
         private System.Windows.Forms.PictureBox ptrbRightLogoGame;
         private System.Windows.Forms.PictureBox ptrbLeftLogoGame;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnMenu;
     }
 }
 
