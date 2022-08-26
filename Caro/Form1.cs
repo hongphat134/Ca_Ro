@@ -14,7 +14,7 @@ namespace Caro
     {
         public Form_Caro()
         {
-            InitializeComponent();
+            InitializeComponent();          
         }
         BanCo bc;
        
@@ -53,6 +53,7 @@ namespace Caro
 
         private void ngườiVsNgườiToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Load_UserInfo(true); Load_BGGame(false);
             undoToolStripMenuItem.Enabled = true;
             bc.Kieuchoi = KieuChoi.PvP;
             if(banco!=null) banco.Controls.Clear();
@@ -66,6 +67,7 @@ namespace Caro
 
         private void ngườiVsMáyToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Load_UserInfo(true); Load_BGGame(false);
             undoToolStripMenuItem.Enabled = true;
             bc.Kieuchoi = KieuChoi.PvE;
             if (banco != null) banco.Controls.Clear();
@@ -77,9 +79,28 @@ namespace Caro
             prcbCoolTime.Value = 0;
         }
 
+        private void Load_UserInfo(bool flag)
+        {
+            lblPhoto.Visible = flag;
+            ptrPhoto.Visible = flag;
+            lblCoolTime.Visible = flag;
+            prcbCoolTime.Visible = flag;
+            lblNguoiChoi.Visible = flag;
+            txtNguoiChoi.Visible = flag;     
+        }
+
+        private void Load_BGGame(bool flag)
+        {
+            btnPvsE.Visible = flag;
+            btnPvsP.Visible = flag;
+            lblLogo.Visible = flag;
+            ptrbLeftLogoGame.Visible = flag;
+            ptrbRightLogoGame.Visible = flag;
+        }
         private void Form_Caro_Load(object sender, EventArgs e)
         {
             bc = new BanCo();
+            Load_UserInfo(false); Load_BGGame(true);
             bc.Endgame += bc_Endgame;
         }
 
@@ -94,6 +115,16 @@ namespace Caro
             if (bc.Kieuchoi == KieuChoi.PvP)
                 bc.UndoPvP();
             else bc.UndoPvE();
+        }
+
+        private void btnPvsP_Click(object sender, EventArgs e)
+        {
+            ngườiVsNgườiToolStripMenuItem_Click(sender, e);
+        }
+
+        private void btnPvsE_Click(object sender, EventArgs e)
+        {
+            ngườiVsMáyToolStripMenuItem_Click(sender, e);
         }
     }
 }

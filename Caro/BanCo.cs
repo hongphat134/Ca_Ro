@@ -84,7 +84,8 @@ namespace Caro
             pnlBanCo.Location = new Point(13, 36);
             pnlBanCo.Enabled = true;
 
-            timerCoolDown = CoolDown;
+            CoolDown.Stop();
+            timerCoolDown = CoolDown;            
             prgbCoolDown = proCoolDown;
             txtNguoiChoi = txtName;
             ptrPhoto = picture;
@@ -104,8 +105,8 @@ namespace Caro
                         Location = new System.Drawing.Point(ChieuNgang, ChieuCao),
                         Tag = i.ToString(),
                         ForeColor = Color.White,
-                        FlatStyle=System.Windows.Forms.FlatStyle.Popup
-                        
+                        BackColor = Color.AntiqueWhite,
+                        FlatStyle=System.Windows.Forms.FlatStyle.Popup,                        
                     };
                     listchess[i, j].Click += BanCo_Click;
                     ChieuNgang += 30;
@@ -253,12 +254,12 @@ namespace Caro
                         ((Button)sender).BackgroundImage = Image.FromFile("image/hinhx.png");
                         ((Button)sender).BackgroundImageLayout = ImageLayout.Stretch;
                         ((Button)sender).Text = "X";
-                        ptrPhoto.BackgroundImage = Image.FromFile("image/hinhO.jpg");
+                        ptrPhoto.BackgroundImage = Image.FromFile("image/hinho.png");
                         ptrPhoto.BackgroundImageLayout = ImageLayout.Stretch;
                     }
                     else
                     {
-                        ((Button)sender).BackgroundImage = Image.FromFile("image/hinhO.png");
+                        ((Button)sender).BackgroundImage = Image.FromFile("image/hinho.png");
                         ((Button)sender).BackgroundImageLayout = ImageLayout.Stretch;
                         ((Button)sender).Text = "O";
 
@@ -315,24 +316,17 @@ namespace Caro
                         Random r = new Random();
                         int RdX;
                         int RdY;
+                        ComStep = new Point();
                         do
-                        {
-                            if (LayDiemDau.X == 0||LayDiemDau.X==17)
-                            {
-                                if(LayDiemDau.X==0)  RdX = r.Next(0, 2);
-                                else RdX = r.Next(-1, 1);
-
-                                if (LayDiemDau.Y == 0) RdY = r.Next(0, 2);
-                                else if (LayDiemDau.Y == 19) RdY = r.Next(-1, 1);
-                                else RdY = r.Next(-1, 2);                                                        
-                            }                      
-                            else
-                            {
-                                RdX = r.Next(-1, 2);
-                                RdY = r.Next(-1, 2);
-                            }
-                        } while (RdX == 0 && RdY == 0);
-                        ComStep = new Point(LayDiemDau.X+RdX, LayDiemDau.Y + RdY);
+                        {                           
+                            RdX = r.Next(-1, 2);
+                            RdY = r.Next(-1, 2);
+                            ComStep.X = LayDiemDau.X + RdX;
+                            ComStep.Y = LayDiemDau.Y + RdY;                            
+                        } while ((ComStep.X < 0 || ComStep.Y < 0)
+                                || (ComStep.X >= 18 || ComStep.Y >= 20)
+                                || (RdX == 0 && RdY == 0) );
+                  
                         BuocDiDau = true;
                     }
                     else ComStep = TimKiemNuocDi();
@@ -526,16 +520,17 @@ namespace Caro
         {
             long DiemMax = 0;
             Point ChessResult = new Point();
-            for(int i=0;i<18;i++)
+                       
+            for (int i = 0; i < 18; i++)
             {
-                for(int j=0;j<20;j++)
+                for (int j = 0; j < 20; j++)
                 {
-                    if(listchess[i,j].Text=="")
+                    if (listchess[i, j].Text == "")
                     {
-                        long DiemTanCong = DiemTanCong_DuyetDoc(i, j) + DiemTanCong_DuyetNgang(i, j) + DiemTanCong_DuyetCheoChinh(i, j) +DiemTanCong_DuyetCheoPhu(i, j);
+                        long DiemTanCong = DiemTanCong_DuyetDoc(i, j) + DiemTanCong_DuyetNgang(i, j) + DiemTanCong_DuyetCheoChinh(i, j) + DiemTanCong_DuyetCheoPhu(i, j);
                         long DiemPhongNgu = DiemPhongNgu_DuyetDoc(i, j) + DiemPhongNgu_DuyetNgang(i, j) + DiemPhongNgu_DuyetCheoChinh(i, j) + DiemPhongNgu_DuyetCheoPhu(i, j);
                         long DiemTam = DiemTanCong > DiemPhongNgu ? DiemTanCong : DiemPhongNgu;
-                        if(DiemMax<DiemTam)
+                        if (DiemMax < DiemTam)
                         {
                             DiemMax = DiemTam;
                             ChessResult.X = i;
@@ -543,7 +538,8 @@ namespace Caro
                         }
                     }
                 }
-            }
+            }           
+
             return ChessResult;
         }
         #endregion
