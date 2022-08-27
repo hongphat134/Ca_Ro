@@ -63,6 +63,16 @@ namespace Caro.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btn_color {
+            get {
+                object obj = ResourceManager.GetObject("btn_color", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo_game {
             get {
                 object obj = ResourceManager.GetObject("logo_game", resourceCulture);
@@ -83,9 +93,29 @@ namespace Caro.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap music_icon {
+            get {
+                object obj = ResourceManager.GetObject("music_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap my_logo {
             get {
                 object obj = ResourceManager.GetObject("my_logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap non_music_icon {
+            get {
+                object obj = ResourceManager.GetObject("non_music_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

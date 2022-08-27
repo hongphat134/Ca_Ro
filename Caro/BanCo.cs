@@ -70,8 +70,9 @@ namespace Caro
             
         }
 
-        public Panel StartGame(TextBox txtName,Timer CoolDown,ProgressBar proCoolDown,PictureBox picture)
+        public Panel StartGame(TextBox txtName,Timer CoolDown,ProgressBar proCoolDown,PictureBox picture, String PlayerName)
         {
+            
             pnlBanCo = new Panel();
             KetQuaThang = new List<Button>();
             undo = new List<Button>();
@@ -79,8 +80,9 @@ namespace Caro
             BuocDiDau = false;
             currentplayer = 0;
             listchess = new Button[18, 20];
-
-            pnlBanCo.Size = new Size(601, 543);
+            
+            pnlBanCo.AutoSize = true;
+            pnlBanCo.Anchor = AnchorStyles.Left;        
             pnlBanCo.Location = new Point(13, 36);
             pnlBanCo.Enabled = true;
 
@@ -91,8 +93,9 @@ namespace Caro
             ptrPhoto = picture;
             ptrPhoto.BackgroundImage = Image.FromFile("image/hinhx.png");
             ptrPhoto.BackgroundImageLayout = ImageLayout.Stretch;
-            txtNguoiChoi.Text = "Người chơi 1";
+            txtNguoiChoi.Text = PlayerName + " 1";
             int ChieuNgang, ChieuCao = 0;
+
             for (int i = 0; i < 18; i++)
             {
                 ChieuNgang = 0;
@@ -108,7 +111,8 @@ namespace Caro
                         BackColor = Color.AntiqueWhite,
                         FlatStyle=System.Windows.Forms.FlatStyle.Popup,                        
                     };
-                    listchess[i, j].Click += BanCo_Click;
+                    //listchess[i, j].Click += BanCo_Click;
+                    listchess[i, j].Click += delegate (object sender, EventArgs e) { BanCo_Click(sender, e, PlayerName); };
                     ChieuNgang += 30;
                     pnlBanCo.Controls.Add(listchess[i, j]);
                 }
@@ -241,7 +245,7 @@ namespace Caro
             return new Point(sodong, socot);
         }
         
-        void BanCo_Click(object sender, EventArgs e)
+        void BanCo_Click(object sender, EventArgs e, String PlayerName)
         {
 
             #region PvP
@@ -281,7 +285,7 @@ namespace Caro
                     
                     
                     currentplayer = currentplayer == 0 ? 1 : 0;
-                    txtNguoiChoi.Text = "Người chơi " + (1 + currentplayer).ToString();
+                    txtNguoiChoi.Text = PlayerName + " " + (1 + currentplayer).ToString();
                     prgbCoolDown.Value = 0;
                     timerCoolDown.Start();
                     if (KiemTraBanCo((Button)sender))

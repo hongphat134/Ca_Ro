@@ -44,15 +44,25 @@
             this.lblNguoiChoi = new System.Windows.Forms.Label();
             this.lblPhoto = new System.Windows.Forms.Label();
             this.lblLogo = new System.Windows.Forms.Label();
-            this.btnPvsP = new System.Windows.Forms.Button();
-            this.btnPvsE = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnMenu = new System.Windows.Forms.Button();
+            this.btnMusic = new System.Windows.Forms.Button();
+            this.ptrbLogo = new System.Windows.Forms.PictureBox();
             this.ptrbLeftLogoGame = new System.Windows.Forms.PictureBox();
+            this.btnPvsE = new System.Windows.Forms.Button();
+            this.btnPvsP = new System.Windows.Forms.Button();
             this.ptrPhoto = new System.Windows.Forms.PictureBox();
             this.ptrbRightLogoGame = new System.Windows.Forms.PictureBox();
-            this.btnMenu = new System.Windows.Forms.Button();
+            this.cbbLanguages = new System.Windows.Forms.ComboBox();
+            this.lblWbPlr1 = new System.Windows.Forms.Label();
+            this.lblWbPlr2 = new System.Windows.Forms.Label();
+            this.lblWinBoard = new System.Windows.Forms.Label();
+            this.lblScorePlr1 = new System.Windows.Forms.Label();
+            this.lblScorePlr2 = new System.Windows.Forms.Label();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.btnResetWb = new System.Windows.Forms.Button();
+            this.btnReplay = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptrbLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptrbLeftLogoGame)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptrPhoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptrbRightLogoGame)).BeginInit();
@@ -64,7 +74,7 @@
             this.newGameToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(819, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(916, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -123,7 +133,8 @@
             // 
             // txtNguoiChoi
             // 
-            this.txtNguoiChoi.Location = new System.Drawing.Point(710, 470);
+            this.txtNguoiChoi.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.txtNguoiChoi.Location = new System.Drawing.Point(798, 425);
             this.txtNguoiChoi.Name = "txtNguoiChoi";
             this.txtNguoiChoi.ReadOnly = true;
             this.txtNguoiChoi.Size = new System.Drawing.Size(100, 20);
@@ -131,9 +142,10 @@
             // 
             // prcbCoolTime
             // 
+            this.prcbCoolTime.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.prcbCoolTime.BackColor = System.Drawing.Color.Purple;
             this.prcbCoolTime.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.prcbCoolTime.Location = new System.Drawing.Point(710, 429);
+            this.prcbCoolTime.Location = new System.Drawing.Point(798, 384);
             this.prcbCoolTime.Name = "prcbCoolTime";
             this.prcbCoolTime.Size = new System.Drawing.Size(100, 23);
             this.prcbCoolTime.TabIndex = 3;
@@ -146,118 +158,62 @@
             // 
             // lblCoolTime
             // 
+            this.lblCoolTime.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblCoolTime.AutoSize = true;
-            this.lblCoolTime.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCoolTime.Location = new System.Drawing.Point(657, 436);
+            this.lblCoolTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.lblCoolTime.Font = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCoolTime.ForeColor = System.Drawing.Color.Maroon;
+            this.lblCoolTime.Location = new System.Drawing.Point(659, 387);
             this.lblCoolTime.Name = "lblCoolTime";
-            this.lblCoolTime.Size = new System.Drawing.Size(47, 16);
+            this.lblCoolTime.Size = new System.Drawing.Size(63, 20);
             this.lblCoolTime.TabIndex = 4;
             this.lblCoolTime.Text = "Time :";
             // 
             // lblNguoiChoi
             // 
+            this.lblNguoiChoi.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblNguoiChoi.AutoSize = true;
-            this.lblNguoiChoi.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNguoiChoi.Location = new System.Drawing.Point(656, 470);
+            this.lblNguoiChoi.Font = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNguoiChoi.ForeColor = System.Drawing.Color.Maroon;
+            this.lblNguoiChoi.Location = new System.Drawing.Point(656, 422);
             this.lblNguoiChoi.Name = "lblNguoiChoi";
-            this.lblNguoiChoi.Size = new System.Drawing.Size(47, 19);
+            this.lblNguoiChoi.Size = new System.Drawing.Size(66, 20);
             this.lblNguoiChoi.TabIndex = 5;
             this.lblNguoiChoi.Text = "Turn :";
             // 
             // lblPhoto
             // 
+            this.lblPhoto.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblPhoto.AutoSize = true;
-            this.lblPhoto.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhoto.Location = new System.Drawing.Point(652, 368);
+            this.lblPhoto.Font = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhoto.ForeColor = System.Drawing.Color.Maroon;
+            this.lblPhoto.Location = new System.Drawing.Point(657, 325);
             this.lblPhoto.Name = "lblPhoto";
-            this.lblPhoto.Size = new System.Drawing.Size(51, 19);
+            this.lblPhoto.Size = new System.Drawing.Size(66, 20);
             this.lblPhoto.TabIndex = 7;
             this.lblPhoto.Text = "Logo :";
             // 
             // lblLogo
             // 
+            this.lblLogo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblLogo.AutoSize = true;
             this.lblLogo.Font = new System.Drawing.Font("Magneto", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLogo.ForeColor = System.Drawing.Color.Red;
-            this.lblLogo.Location = new System.Drawing.Point(213, 77);
+            this.lblLogo.Location = new System.Drawing.Point(262, 77);
             this.lblLogo.Name = "lblLogo";
             this.lblLogo.Size = new System.Drawing.Size(401, 58);
             this.lblLogo.TabIndex = 8;
             this.lblLogo.Text = "GAME CARO";
             this.lblLogo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // btnPvsP
-            // 
-            this.btnPvsP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnPvsP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnPvsP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPvsP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnPvsP.Location = new System.Drawing.Point(293, 235);
-            this.btnPvsP.Name = "btnPvsP";
-            this.btnPvsP.Size = new System.Drawing.Size(241, 118);
-            this.btnPvsP.TabIndex = 9;
-            this.btnPvsP.Text = "PEOPLE VS PEOPLE";
-            this.btnPvsP.UseVisualStyleBackColor = false;
-            this.btnPvsP.Click += new System.EventHandler(this.btnPvsP_Click);
-            // 
-            // btnPvsE
-            // 
-            this.btnPvsE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnPvsE.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPvsE.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnPvsE.Location = new System.Drawing.Point(293, 383);
-            this.btnPvsE.Name = "btnPvsE";
-            this.btnPvsE.Size = new System.Drawing.Size(241, 118);
-            this.btnPvsE.TabIndex = 10;
-            this.btnPvsE.Text = "PEOPLE VS AI";
-            this.btnPvsE.UseVisualStyleBackColor = false;
-            this.btnPvsE.Click += new System.EventHandler(this.btnPvsE_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Caro.Properties.Resources.my_logo;
-            this.pictureBox1.Location = new System.Drawing.Point(649, 77);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(158, 121);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 15;
-            this.pictureBox1.TabStop = false;
-            // 
-            // ptrbLeftLogoGame
-            // 
-            this.ptrbLeftLogoGame.Image = global::Caro.Properties.Resources.logo_game;
-            this.ptrbLeftLogoGame.Location = new System.Drawing.Point(47, 268);
-            this.ptrbLeftLogoGame.Name = "ptrbLeftLogoGame";
-            this.ptrbLeftLogoGame.Size = new System.Drawing.Size(176, 168);
-            this.ptrbLeftLogoGame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptrbLeftLogoGame.TabIndex = 14;
-            this.ptrbLeftLogoGame.TabStop = false;
-            // 
-            // ptrPhoto
-            // 
-            this.ptrPhoto.Location = new System.Drawing.Point(710, 351);
-            this.ptrPhoto.Name = "ptrPhoto";
-            this.ptrPhoto.Size = new System.Drawing.Size(80, 57);
-            this.ptrPhoto.TabIndex = 6;
-            this.ptrPhoto.TabStop = false;
-            // 
-            // ptrbRightLogoGame
-            // 
-            this.ptrbRightLogoGame.Image = ((System.Drawing.Image)(resources.GetObject("ptrbRightLogoGame.Image")));
-            this.ptrbRightLogoGame.Location = new System.Drawing.Point(592, 268);
-            this.ptrbRightLogoGame.Name = "ptrbRightLogoGame";
-            this.ptrbRightLogoGame.Size = new System.Drawing.Size(176, 168);
-            this.ptrbRightLogoGame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptrbRightLogoGame.TabIndex = 12;
-            this.ptrbRightLogoGame.TabStop = false;
-            // 
             // btnMenu
             // 
+            this.btnMenu.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnMenu.BackColor = System.Drawing.Color.Snow;
             this.btnMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenu.Font = new System.Drawing.Font("Showcard Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnMenu.Location = new System.Drawing.Point(649, 235);
+            this.btnMenu.Location = new System.Drawing.Point(740, 219);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(158, 68);
             this.btnMenu.TabIndex = 16;
@@ -266,14 +222,229 @@
             this.btnMenu.Visible = false;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
+            // btnMusic
+            // 
+            this.btnMusic.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnMusic.BackgroundImage = global::Caro.Properties.Resources.music_icon;
+            this.btnMusic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMusic.Location = new System.Drawing.Point(855, 41);
+            this.btnMusic.Name = "btnMusic";
+            this.btnMusic.Size = new System.Drawing.Size(49, 37);
+            this.btnMusic.TabIndex = 18;
+            this.btnMusic.UseVisualStyleBackColor = true;
+            this.btnMusic.Click += new System.EventHandler(this.btnMusic_Click);
+            // 
+            // ptrbLogo
+            // 
+            this.ptrbLogo.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.ptrbLogo.Image = global::Caro.Properties.Resources.my_logo;
+            this.ptrbLogo.Location = new System.Drawing.Point(689, 106);
+            this.ptrbLogo.Name = "ptrbLogo";
+            this.ptrbLogo.Size = new System.Drawing.Size(158, 121);
+            this.ptrbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptrbLogo.TabIndex = 15;
+            this.ptrbLogo.TabStop = false;
+            this.ptrbLogo.MouseLeave += new System.EventHandler(this.ptrbLogo_MouseLeave);
+            this.ptrbLogo.MouseHover += new System.EventHandler(this.ptrbLogo_MouseHover);
+            // 
+            // ptrbLeftLogoGame
+            // 
+            this.ptrbLeftLogoGame.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.ptrbLeftLogoGame.Image = global::Caro.Properties.Resources.logo_game;
+            this.ptrbLeftLogoGame.Location = new System.Drawing.Point(47, 260);
+            this.ptrbLeftLogoGame.Name = "ptrbLeftLogoGame";
+            this.ptrbLeftLogoGame.Size = new System.Drawing.Size(176, 168);
+            this.ptrbLeftLogoGame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptrbLeftLogoGame.TabIndex = 14;
+            this.ptrbLeftLogoGame.TabStop = false;
+            // 
+            // btnPvsE
+            // 
+            this.btnPvsE.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnPvsE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnPvsE.BackgroundImage = global::Caro.Properties.Resources.btn_color;
+            this.btnPvsE.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPvsE.Font = new System.Drawing.Font("Showcard Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPvsE.ForeColor = System.Drawing.Color.Maroon;
+            this.btnPvsE.Location = new System.Drawing.Point(342, 366);
+            this.btnPvsE.Name = "btnPvsE";
+            this.btnPvsE.Size = new System.Drawing.Size(241, 118);
+            this.btnPvsE.TabIndex = 10;
+            this.btnPvsE.Text = "PEOPLE VS AI";
+            this.btnPvsE.UseVisualStyleBackColor = false;
+            this.btnPvsE.Click += new System.EventHandler(this.btnPvsE_Click);
+            // 
+            // btnPvsP
+            // 
+            this.btnPvsP.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnPvsP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnPvsP.BackgroundImage = global::Caro.Properties.Resources.btn_color;
+            this.btnPvsP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPvsP.Font = new System.Drawing.Font("Showcard Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPvsP.ForeColor = System.Drawing.Color.Maroon;
+            this.btnPvsP.Location = new System.Drawing.Point(342, 227);
+            this.btnPvsP.Name = "btnPvsP";
+            this.btnPvsP.Size = new System.Drawing.Size(241, 118);
+            this.btnPvsP.TabIndex = 9;
+            this.btnPvsP.Text = "PEOPLE VS PEOPLE";
+            this.btnPvsP.UseVisualStyleBackColor = false;
+            this.btnPvsP.Click += new System.EventHandler(this.btnPvsP_Click);
+            // 
+            // ptrPhoto
+            // 
+            this.ptrPhoto.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.ptrPhoto.Location = new System.Drawing.Point(795, 306);
+            this.ptrPhoto.Name = "ptrPhoto";
+            this.ptrPhoto.Size = new System.Drawing.Size(80, 57);
+            this.ptrPhoto.TabIndex = 6;
+            this.ptrPhoto.TabStop = false;
+            // 
+            // ptrbRightLogoGame
+            // 
+            this.ptrbRightLogoGame.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.ptrbRightLogoGame.Image = ((System.Drawing.Image)(resources.GetObject("ptrbRightLogoGame.Image")));
+            this.ptrbRightLogoGame.Location = new System.Drawing.Point(689, 260);
+            this.ptrbRightLogoGame.Name = "ptrbRightLogoGame";
+            this.ptrbRightLogoGame.Size = new System.Drawing.Size(176, 168);
+            this.ptrbRightLogoGame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptrbRightLogoGame.TabIndex = 12;
+            this.ptrbRightLogoGame.TabStop = false;
+            // 
+            // cbbLanguages
+            // 
+            this.cbbLanguages.DisplayMember = "English";
+            this.cbbLanguages.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbLanguages.Font = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbLanguages.FormattingEnabled = true;
+            this.cbbLanguages.Items.AddRange(new object[] {
+            "English",
+            "Tiếng Việt",
+            "China",
+            "French"});
+            this.cbbLanguages.Location = new System.Drawing.Point(47, 50);
+            this.cbbLanguages.Name = "cbbLanguages";
+            this.cbbLanguages.Size = new System.Drawing.Size(121, 28);
+            this.cbbLanguages.TabIndex = 19;
+            this.cbbLanguages.UseWaitCursor = true;
+            this.cbbLanguages.SelectedIndexChanged += new System.EventHandler(this.cbbLanguages_SelectedIndexChanged);
+            // 
+            // lblWbPlr1
+            // 
+            this.lblWbPlr1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblWbPlr1.AutoSize = true;
+            this.lblWbPlr1.Font = new System.Drawing.Font("Showcard Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWbPlr1.ForeColor = System.Drawing.Color.Maroon;
+            this.lblWbPlr1.Location = new System.Drawing.Point(668, 509);
+            this.lblWbPlr1.Name = "lblWbPlr1";
+            this.lblWbPlr1.Size = new System.Drawing.Size(88, 17);
+            this.lblWbPlr1.TabIndex = 20;
+            this.lblWbPlr1.Text = "Người chơi 1";
+            this.lblWbPlr1.Visible = false;
+            // 
+            // lblWbPlr2
+            // 
+            this.lblWbPlr2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblWbPlr2.AutoSize = true;
+            this.lblWbPlr2.Font = new System.Drawing.Font("Showcard Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWbPlr2.ForeColor = System.Drawing.Color.Maroon;
+            this.lblWbPlr2.Location = new System.Drawing.Point(779, 510);
+            this.lblWbPlr2.Name = "lblWbPlr2";
+            this.lblWbPlr2.Size = new System.Drawing.Size(89, 17);
+            this.lblWbPlr2.TabIndex = 21;
+            this.lblWbPlr2.Text = "Người chơi 2";
+            this.lblWbPlr2.Visible = false;
+            // 
+            // lblWinBoard
+            // 
+            this.lblWinBoard.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblWinBoard.AutoSize = true;
+            this.lblWinBoard.Font = new System.Drawing.Font("Showcard Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWinBoard.ForeColor = System.Drawing.Color.Maroon;
+            this.lblWinBoard.Location = new System.Drawing.Point(712, 472);
+            this.lblWinBoard.Name = "lblWinBoard";
+            this.lblWinBoard.Size = new System.Drawing.Size(110, 23);
+            this.lblWinBoard.TabIndex = 22;
+            this.lblWinBoard.Text = "Bàn thắng";
+            this.lblWinBoard.Visible = false;
+            // 
+            // lblScorePlr1
+            // 
+            this.lblScorePlr1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblScorePlr1.AutoSize = true;
+            this.lblScorePlr1.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScorePlr1.ForeColor = System.Drawing.Color.Yellow;
+            this.lblScorePlr1.Location = new System.Drawing.Point(699, 538);
+            this.lblScorePlr1.Name = "lblScorePlr1";
+            this.lblScorePlr1.Size = new System.Drawing.Size(20, 32);
+            this.lblScorePlr1.TabIndex = 23;
+            this.lblScorePlr1.Text = "0";
+            this.lblScorePlr1.UseCompatibleTextRendering = true;
+            this.lblScorePlr1.Visible = false;
+            // 
+            // lblScorePlr2
+            // 
+            this.lblScorePlr2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblScorePlr2.AutoSize = true;
+            this.lblScorePlr2.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScorePlr2.ForeColor = System.Drawing.Color.Yellow;
+            this.lblScorePlr2.Location = new System.Drawing.Point(808, 538);
+            this.lblScorePlr2.Name = "lblScorePlr2";
+            this.lblScorePlr2.Size = new System.Drawing.Size(24, 27);
+            this.lblScorePlr2.TabIndex = 24;
+            this.lblScorePlr2.Text = "0";
+            this.lblScorePlr2.Visible = false;
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            // 
+            // btnResetWb
+            // 
+            this.btnResetWb.Font = new System.Drawing.Font("Showcard Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResetWb.ForeColor = System.Drawing.Color.Maroon;
+            this.btnResetWb.Location = new System.Drawing.Point(828, 472);
+            this.btnResetWb.Name = "btnResetWb";
+            this.btnResetWb.Size = new System.Drawing.Size(69, 23);
+            this.btnResetWb.TabIndex = 25;
+            this.btnResetWb.Text = "Reset";
+            this.btnResetWb.UseVisualStyleBackColor = true;
+            this.btnResetWb.Visible = false;
+            this.btnResetWb.Click += new System.EventHandler(this.btnResetWb_Click);
+            // 
+            // btnReplay
+            // 
+            this.btnReplay.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnReplay.BackColor = System.Drawing.Color.Black;
+            this.btnReplay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnReplay.Font = new System.Drawing.Font("Showcard Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReplay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnReplay.Location = new System.Drawing.Point(244, 295);
+            this.btnReplay.Name = "btnReplay";
+            this.btnReplay.Size = new System.Drawing.Size(158, 68);
+            this.btnReplay.TabIndex = 26;
+            this.btnReplay.Text = "Play Again";
+            this.btnReplay.UseVisualStyleBackColor = false;
+            this.btnReplay.Visible = false;
+            this.btnReplay.Click += new System.EventHandler(this.btnReplay_Click);
+            // 
             // Form_Caro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Green;
-            this.ClientSize = new System.Drawing.Size(819, 605);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.ClientSize = new System.Drawing.Size(916, 588);
+            this.Controls.Add(this.btnReplay);
+            this.Controls.Add(this.btnResetWb);
+            this.Controls.Add(this.lblScorePlr2);
+            this.Controls.Add(this.lblScorePlr1);
+            this.Controls.Add(this.lblWinBoard);
+            this.Controls.Add(this.lblWbPlr2);
+            this.Controls.Add(this.lblWbPlr1);
+            this.Controls.Add(this.cbbLanguages);
+            this.Controls.Add(this.btnMusic);
             this.Controls.Add(this.btnMenu);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.ptrbLogo);
             this.Controls.Add(this.ptrbLeftLogoGame);
             this.Controls.Add(this.btnPvsE);
             this.Controls.Add(this.btnPvsP);
@@ -293,7 +464,7 @@
             this.Load += new System.EventHandler(this.Form_Caro_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptrbLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptrbLeftLogoGame)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptrPhoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptrbRightLogoGame)).EndInit();
@@ -323,8 +494,18 @@
         private System.Windows.Forms.Button btnPvsE;
         private System.Windows.Forms.PictureBox ptrbRightLogoGame;
         private System.Windows.Forms.PictureBox ptrbLeftLogoGame;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox ptrbLogo;
         private System.Windows.Forms.Button btnMenu;
+        private System.Windows.Forms.Button btnMusic;
+        private System.Windows.Forms.ComboBox cbbLanguages;
+        private System.Windows.Forms.Label lblWbPlr1;
+        private System.Windows.Forms.Label lblWbPlr2;
+        private System.Windows.Forms.Label lblWinBoard;
+        private System.Windows.Forms.Label lblScorePlr1;
+        private System.Windows.Forms.Label lblScorePlr2;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.Button btnResetWb;
+        private System.Windows.Forms.Button btnReplay;
     }
 }
 

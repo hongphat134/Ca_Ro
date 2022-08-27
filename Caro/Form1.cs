@@ -7,28 +7,85 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace Caro
 {
     public partial class Form_Caro : Form
     {
-        public Form_Caro()
-        {
-            InitializeComponent();          
-        }
+        #region Attributes
         BanCo bc;
-       
-
         Panel banco;
+      
+        SoundPlayer Sound;
+        Boolean FightingStatus = false;
+        Boolean MusicStatus = true;
+        
+        String PlayerName = "Player";       
+        String BG_SOUND_LINKED = Environment.CurrentDirectory + @"\music\bg_sound.wav";
+        String FIGHTING_SOUND_LINKED = Environment.CurrentDirectory + @"\music\fighting_sound.wav";
+
+        int ScorePlayer1 = 0;
+        int ScorePlayer2 = 0;
+        #endregion
+
+        public Form_Caro()
+        { 
+            InitializeComponent();          
+            this.Sound = new SoundPlayer(BG_SOUND_LINKED);
+            this.Sound.PlayLooping();
+            cbbLanguages.Text = "English";           
+        }
+
+        void SetGoal()
+        {
+            if (bc.Currentplayer == 1)
+            {
+                ScorePlayer1++;
+                lblScorePlr1.Text = ScorePlayer1.ToString();
+            }
+            else
+            {
+                ScorePlayer2++;
+                lblScorePlr2.Text = ScorePlayer2.ToString();
+            }
+            btnReplay.Visible = true;
+        }
+
+        void SetMessageForEndGame()
+        {
+            String Language = cbbLanguages.Text;
+            if (Language == "French") MessageBox.Show("Fin! " + "Tour " + ((bc.Currentplayer == 1 ? 0 : 1) + 1).ToString() + " GAGNER!");
+           
+            else if (Language == "Tiếng Việt")MessageBox.Show("Kết thúc! " + "Người chơi " + ((bc.Currentplayer == 1 ? 0 : 1) + 1).ToString() + " THẮNG!");
+            
+            else if (Language == "China") MessageBox.Show("结尾! " + "转动 " + ((bc.Currentplayer == 1 ? 0 : 1) + 1).ToString() + " 赢!");
+
+            else MessageBox.Show("Finish! " + "Player " + ((bc.Currentplayer == 1 ? 0 : 1) + 1).ToString() + " WIN!");           
+        }
+
+        void SetMessageForEndTime()
+        {
+            String Language = cbbLanguages.Text;
+            if (Language == "French") MessageBox.Show("le temps du joueur "+ ((bc.Currentplayer == 1 ? 0 : 1) + 1).ToString() + " est écoulé! Joueur " + (bc.Currentplayer  + 1).ToString() + " GAGNER!");
+
+            else if (Language == "Tiếng Việt") MessageBox.Show("Người chơi " + ((bc.Currentplayer == 1 ? 0 : 1) + 1).ToString() + " hết thời gian đánh! Người chơi " + (bc.Currentplayer + 1).ToString() + " thắng!");
+
+            else if (Language == "China") MessageBox.Show("玩家时 " + ((bc.Currentplayer == 1 ? 0 : 1) + 1).ToString() + " 间用完! 转动 " + (bc.Currentplayer + 1).ToString() + " 赢!");
+
+            else MessageBox.Show("Player " + ((bc.Currentplayer == 1 ? 0 : 1) + 1).ToString() + " was timeout! Player " + (bc.Currentplayer + 1).ToString() + " WIN!");
+        }
+
         void EndGame()
         {
-            
-            MessageBox.Show("Kết thúc! "+"Người chơi "+((bc.Currentplayer==1?0:1)+1).ToString()+" thắng!");
+            SetMessageForEndGame();
+            SetGoal();
         }
     
         void EndTime()
         {
-            MessageBox.Show("Người chơi "+(bc.Currentplayer+1).ToString()+" hết thời gian đánh! Người chơi " + ((bc.Currentplayer == 1 ? 0 : 1) + 1).ToString() + " thắng!");
+            SetMessageForEndTime();
+            SetGoal();
         }
 
         void bc_Endgame(object sender, EventArgs e)
@@ -58,7 +115,7 @@ namespace Caro
             bc.Kieuchoi = KieuChoi.PvP;
             if(banco!=null) banco.Controls.Clear();
             Controls.Remove(banco);
-            banco = bc.StartGame(txtNguoiChoi, timerCoolTime, prcbCoolTime, ptrPhoto);
+            banco = bc.StartGame(txtNguoiChoi, timerCoolTime, prcbCoolTime, ptrPhoto, PlayerName);
             Controls.Add(banco);
             
 
@@ -72,15 +129,32 @@ namespace Caro
             bc.Kieuchoi = KieuChoi.PvE;
             if (banco != null) banco.Controls.Clear();
             Controls.Remove(banco);
-            banco = bc.StartGame(txtNguoiChoi, timerCoolTime, prcbCoolTime, ptrPhoto);
+            banco = bc.StartGame(txtNguoiChoi, timerCoolTime, prcbCoolTime, ptrPhoto, PlayerName);
             Controls.Add(banco);
             
 
             prcbCoolTime.Value = 0;
         }
-
+       
         private void Load_UserInfo(bool flag)
         {
+            FightingStatus = flag;
+            if (MusicStatus == true)
+            {
+                if (FightingStatus == true)
+                {
+                    Sound.Stop();
+                    Sound.SoundLocation = FIGHTING_SOUND_LINKED;
+                    Sound.PlayLooping();
+                }
+                else
+                {
+                    Sound.Stop();
+                    Sound.SoundLocation = BG_SOUND_LINKED;
+                    Sound.PlayLooping();
+                }
+            }
+            
             lblPhoto.Visible = flag;
             ptrPhoto.Visible = flag;
             lblCoolTime.Visible = flag;
@@ -88,10 +162,18 @@ namespace Caro
             lblNguoiChoi.Visible = flag;
             txtNguoiChoi.Visible = flag;
             btnMenu.Visible = flag;
+
+            lblWbPlr1.Visible = flag;
+            lblWbPlr2.Visible = flag;
+            lblWinBoard.Visible = flag;
+            lblScorePlr1.Visible = flag;
+            lblScorePlr2.Visible = flag;
+            btnResetWb.Visible = flag;            
         }
 
         private void Load_BGGame(bool flag)
         {
+            cbbLanguages.Visible = flag;
             btnPvsE.Visible = flag;
             btnPvsP.Visible = flag;
             lblLogo.Visible = flag;
@@ -131,8 +213,110 @@ namespace Caro
         private void btnMenu_Click(object sender, EventArgs e)
         {
             Load_BGGame(true); Load_UserInfo(false);
+            btnReplay.Visible = false;
+            timerCoolTime.Stop();
             banco.Controls.Clear();
             Controls.Remove(banco);
+        }
+      
+        private void btnMusic_Click(object sender, EventArgs e)
+        {
+            if(MusicStatus == true)
+            {
+                Sound.Stop();
+                btnMusic.BackgroundImage = Caro.Properties.Resources.non_music_icon;
+                MusicStatus = false;
+            }
+            else
+            {
+                if (FightingStatus == true) Sound.SoundLocation = FIGHTING_SOUND_LINKED;
+                else Sound.SoundLocation = BG_SOUND_LINKED;
+                Sound.PlayLooping();
+                btnMusic.BackgroundImage = Caro.Properties.Resources.music_icon;
+                MusicStatus = true;
+            }
+        }
+
+        private void cbbLanguages_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String Language = cbbLanguages.Text;
+            if(Language == "French")
+            {
+                btnMenu.Text = "RETOUR À L'INTERFACE PRINCIPALE";
+                btnPvsP.Text = "PERSONNES VS PERSONNES";
+                btnPvsE.Text = "PERSONNES VS L'ORDINATEUR";
+                lblPhoto.Text = "AVATAR :";
+                lblCoolTime.Text = "RÉCRÉATION:";
+                lblNguoiChoi.Text = "TOUR :";
+                PlayerName = "Joueur";
+                lblWinBoard.Text = "objectif";
+                btnReplay.Text = "Rejouer";
+            }
+            else if(Language == "Tiếng Việt")
+            {
+                btnMenu.Text = "TRỞ VỀ GIAO DIỆN CHÍNH";
+                btnPvsP.Text = "NGƯỜI VS NGƯỜI";
+                btnPvsE.Text = "NGƯỜI VS MÁY";
+                lblPhoto.Text = "ẢNH ĐẠI DIỆN:";
+                lblCoolTime.Text = "GIỜ CHƠI:";
+                lblNguoiChoi.Text = "LƯỢT CHƠI:";
+                PlayerName = "Người chơi";
+                lblWinBoard.Text = "Bản thắng";
+                btnReplay.Text = "Chơi lại";
+            }
+            else if(Language == "China")
+            {
+                btnMenu.Text = "返回主界面";
+                btnPvsP.Text = "人们 VS 人们";
+                btnPvsE.Text = "人们 VS 计算机";
+                lblPhoto.Text = "阿凡达 : ";
+                lblCoolTime.Text = "游戏时间:";
+                lblNguoiChoi.Text = "转动 :";
+                PlayerName = "播放器";
+                lblWinBoard.Text = "目标";
+                btnReplay.Text = "再玩一遍";
+            }
+            else
+            {
+                btnMenu.Text = "RETURN TO MENU";
+                btnPvsP.Text = "PEOPLE VS PEOLE";
+                btnPvsE.Text = "PEOPLE VS AI";
+                lblPhoto.Text = "LOGO :";
+                lblCoolTime.Text = "TIME :";
+                lblNguoiChoi.Text = "TURN :";
+                PlayerName = "Player";
+                lblWinBoard.Text = "Goal";
+                btnReplay.Text = "Play again";
+            }
+            
+            lblWbPlr1.Text = PlayerName + " 1";
+            lblWbPlr2.Text = PlayerName + " 2";
+        }
+
+        private void ptrbLogo_MouseHover(object sender, EventArgs e)
+        {
+            ptrbLogo.Size = new Size(200, 150);
+            ptrbLogo.Location = new Point(660, 90);
+        }
+
+        private void ptrbLogo_MouseLeave(object sender, EventArgs e)
+        {
+            ptrbLogo.Size = new Size(158, 121);
+            ptrbLogo.Location = new Point(689, 106);
+        }
+
+        private void btnResetWb_Click(object sender, EventArgs e)
+        {
+            ScorePlayer1 = 0; ScorePlayer2 = 0;
+            lblScorePlr1.Text = ScorePlayer1.ToString(); lblScorePlr2.Text = ScorePlayer2.ToString();
+        }
+
+        private void btnReplay_Click(object sender, EventArgs e)
+        {
+            btnReplay.Visible = false;
+            if (bc.Kieuchoi == KieuChoi.PvP) btnPvsP_Click(sender, e);
+            else btnPvsE_Click(sender, e);
+            
         }
     }
 }
