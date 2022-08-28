@@ -251,6 +251,8 @@ namespace Caro
                 PlayerName = "Joueur";
                 lblWinBoard.Text = "objectif";
                 btnReplay.Text = "Rejouer";
+                btnRules.Text = "Régner";
+                lblRulesContent.Text = "Marquez 5 cellules consécutives par ligne, colonne ou diagonale comme WIN";
             }
             else if(Language == "Tiếng Việt")
             {
@@ -263,6 +265,8 @@ namespace Caro
                 PlayerName = "Người chơi";
                 lblWinBoard.Text = "Bản thắng";
                 btnReplay.Text = "Chơi lại";
+                btnRules.Text = "Luật chơi";
+                lblRulesContent.Text = "Đánh dấu 5 ô liên tiếp theo hàng, cột hoặc đường chéo là THẮNG";
             }
             else if(Language == "China")
             {
@@ -275,6 +279,8 @@ namespace Caro
                 PlayerName = "播放器";
                 lblWinBoard.Text = "目标";
                 btnReplay.Text = "再玩一遍";
+                btnRules.Text = "规则";
+                lblRulesContent.Text = "将一行、一列或对角线中的五个连续单元格标记为获胜";
             }
             else
             {
@@ -287,6 +293,8 @@ namespace Caro
                 PlayerName = "Player";
                 lblWinBoard.Text = "Goal";
                 btnReplay.Text = "Play again";
+                btnRules.Text = "Rules";
+                lblRulesContent.Text = "Mark FIVE consecutive cells by row, column or diagonal as WIN";
             }
             
             lblWbPlr1.Text = PlayerName + " 1";
@@ -317,6 +325,11 @@ namespace Caro
             if (bc.Kieuchoi == KieuChoi.PvP) btnPvsP_Click(sender, e);
             else btnPvsE_Click(sender, e);
             
+        }
+
+        private void btnRules_Click(object sender, EventArgs e)
+        {
+            lblRulesContent.Visible = lblRulesContent.Visible == false ? true : false;
         }
     }
 }

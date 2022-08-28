@@ -61,6 +61,8 @@
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.btnResetWb = new System.Windows.Forms.Button();
             this.btnReplay = new System.Windows.Forms.Button();
+            this.btnRules = new System.Windows.Forms.Button();
+            this.lblRulesContent = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptrbLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptrbLeftLogoGame)).BeginInit();
@@ -428,12 +430,45 @@
             this.btnReplay.Visible = false;
             this.btnReplay.Click += new System.EventHandler(this.btnReplay_Click);
             // 
+            // btnRules
+            // 
+            this.btnRules.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnRules.BackColor = System.Drawing.Color.Snow;
+            this.btnRules.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnRules.Font = new System.Drawing.Font("Showcard Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRules.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnRules.Location = new System.Drawing.Point(753, 41);
+            this.btnRules.Name = "btnRules";
+            this.btnRules.Size = new System.Drawing.Size(94, 37);
+            this.btnRules.TabIndex = 27;
+            this.btnRules.Text = "Rules";
+            this.btnRules.UseVisualStyleBackColor = false;
+            this.btnRules.Click += new System.EventHandler(this.btnRules_Click);
+            // 
+            // lblRulesContent
+            // 
+            this.lblRulesContent.AllowDrop = true;
+            this.lblRulesContent.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblRulesContent.AutoEllipsis = true;
+            this.lblRulesContent.BackColor = System.Drawing.Color.White;
+            this.lblRulesContent.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblRulesContent.Font = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRulesContent.ForeColor = System.Drawing.Color.Maroon;
+            this.lblRulesContent.Location = new System.Drawing.Point(504, 92);
+            this.lblRulesContent.Name = "lblRulesContent";
+            this.lblRulesContent.Size = new System.Drawing.Size(343, 135);
+            this.lblRulesContent.TabIndex = 28;
+            this.lblRulesContent.Text = "Đánh dấu 5 ô liên tiếp theo hàng, cột hoặc đường chéo là THẮNG";
+            this.lblRulesContent.Visible = false;
+            // 
             // Form_Caro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(916, 588);
+            this.Controls.Add(this.lblRulesContent);
+            this.Controls.Add(this.btnRules);
             this.Controls.Add(this.btnReplay);
             this.Controls.Add(this.btnResetWb);
             this.Controls.Add(this.lblScorePlr2);
@@ -506,6 +541,8 @@
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.Button btnResetWb;
         private System.Windows.Forms.Button btnReplay;
+        private System.Windows.Forms.Button btnRules;
+        private System.Windows.Forms.Label lblRulesContent;
     }
 }
 
