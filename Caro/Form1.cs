@@ -75,7 +75,7 @@ namespace Caro
 
             else MessageBox.Show("Player " + ((bc.Currentplayer == 1 ? 0 : 1) + 1).ToString() + " was timeout! Player " + (bc.Currentplayer + 1).ToString() + " WIN!");
         }
-
+        
         void EndGame()
         {
             SetMessageForEndGame();
@@ -110,6 +110,7 @@ namespace Caro
 
         private void ngườiVsNgườiToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            btnReplay.Visible = false;
             Load_UserInfo(true); Load_BGGame(false);
             undoToolStripMenuItem.Enabled = true;
             bc.Kieuchoi = KieuChoi.PvP;
@@ -117,13 +118,14 @@ namespace Caro
             Controls.Remove(banco);
             banco = bc.StartGame(txtNguoiChoi, timerCoolTime, prcbCoolTime, ptrPhoto, PlayerName);
             Controls.Add(banco);
-            
 
+            
             prcbCoolTime.Value = 0;
         }
 
         private void ngườiVsMáyToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            btnReplay.Visible = false;
             Load_UserInfo(true); Load_BGGame(false);
             undoToolStripMenuItem.Enabled = true;
             bc.Kieuchoi = KieuChoi.PvE;
@@ -131,8 +133,8 @@ namespace Caro
             Controls.Remove(banco);
             banco = bc.StartGame(txtNguoiChoi, timerCoolTime, prcbCoolTime, ptrPhoto, PlayerName);
             Controls.Add(banco);
-            
 
+            
             prcbCoolTime.Value = 0;
         }
        
@@ -330,6 +332,11 @@ namespace Caro
         private void btnRules_Click(object sender, EventArgs e)
         {
             lblRulesContent.Visible = lblRulesContent.Visible == false ? true : false;
+        }
+
+        private void lblRulesContent_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, lblRulesContent.DisplayRectangle, Color.DarkRed, ButtonBorderStyle.Solid);
         }
     }
 }

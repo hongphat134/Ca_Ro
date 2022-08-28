@@ -107,12 +107,14 @@ namespace Caro
                         Height = 30,
                         Location = new System.Drawing.Point(ChieuNgang, ChieuCao),
                         Tag = i.ToString(),
-                        ForeColor = Color.White,
+                        ForeColor = Color.AntiqueWhite,
                         BackColor = Color.AntiqueWhite,
                         FlatStyle=System.Windows.Forms.FlatStyle.Popup,                        
                     };
                     //listchess[i, j].Click += BanCo_Click;
-                    listchess[i, j].Click += delegate (object sender, EventArgs e) { BanCo_Click(sender, e, PlayerName); };
+                    listchess[i, j].Click += delegate (object sender, EventArgs e) { 
+                        BanCo_Click(sender, e, PlayerName); 
+                    };
                     ChieuNgang += 30;
                     pnlBanCo.Controls.Add(listchess[i, j]);
                 }

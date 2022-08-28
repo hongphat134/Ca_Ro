@@ -213,6 +213,11 @@
             this.btnMenu.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnMenu.BackColor = System.Drawing.Color.Snow;
             this.btnMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenu.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnMenu.FlatAppearance.BorderSize = 3;
+            this.btnMenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenu.Font = new System.Drawing.Font("Showcard Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnMenu.Location = new System.Drawing.Point(740, 219);
@@ -227,13 +232,19 @@
             // btnMusic
             // 
             this.btnMusic.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnMusic.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnMusic.BackgroundImage = global::Caro.Properties.Resources.music_icon;
             this.btnMusic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMusic.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMusic.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnMusic.FlatAppearance.BorderSize = 3;
+            this.btnMusic.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnMusic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMusic.Location = new System.Drawing.Point(855, 41);
             this.btnMusic.Name = "btnMusic";
             this.btnMusic.Size = new System.Drawing.Size(49, 37);
             this.btnMusic.TabIndex = 18;
-            this.btnMusic.UseVisualStyleBackColor = true;
+            this.btnMusic.UseVisualStyleBackColor = false;
             this.btnMusic.Click += new System.EventHandler(this.btnMusic_Click);
             // 
             // ptrbLogo
@@ -266,6 +277,10 @@
             this.btnPvsE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btnPvsE.BackgroundImage = global::Caro.Properties.Resources.btn_color;
             this.btnPvsE.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPvsE.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPvsE.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnPvsE.FlatAppearance.BorderSize = 3;
+            this.btnPvsE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPvsE.Font = new System.Drawing.Font("Showcard Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPvsE.ForeColor = System.Drawing.Color.Maroon;
             this.btnPvsE.Location = new System.Drawing.Point(342, 366);
@@ -282,6 +297,10 @@
             this.btnPvsP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btnPvsP.BackgroundImage = global::Caro.Properties.Resources.btn_color;
             this.btnPvsP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPvsP.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPvsP.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnPvsP.FlatAppearance.BorderSize = 3;
+            this.btnPvsP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPvsP.Font = new System.Drawing.Font("Showcard Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPvsP.ForeColor = System.Drawing.Color.Maroon;
             this.btnPvsP.Location = new System.Drawing.Point(342, 227);
@@ -314,6 +333,7 @@
             // 
             // cbbLanguages
             // 
+            this.cbbLanguages.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbbLanguages.DisplayMember = "English";
             this.cbbLanguages.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbLanguages.Font = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -327,7 +347,6 @@
             this.cbbLanguages.Name = "cbbLanguages";
             this.cbbLanguages.Size = new System.Drawing.Size(121, 28);
             this.cbbLanguages.TabIndex = 19;
-            this.cbbLanguages.UseWaitCursor = true;
             this.cbbLanguages.SelectedIndexChanged += new System.EventHandler(this.cbbLanguages_SelectedIndexChanged);
             // 
             // lblWbPlr1
@@ -403,22 +422,34 @@
             // 
             // btnResetWb
             // 
+            this.btnResetWb.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnResetWb.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnResetWb.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnResetWb.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnResetWb.FlatAppearance.BorderSize = 3;
+            this.btnResetWb.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnResetWb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnResetWb.Font = new System.Drawing.Font("Showcard Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResetWb.ForeColor = System.Drawing.Color.Maroon;
-            this.btnResetWb.Location = new System.Drawing.Point(828, 472);
+            this.btnResetWb.Location = new System.Drawing.Point(828, 468);
             this.btnResetWb.Name = "btnResetWb";
-            this.btnResetWb.Size = new System.Drawing.Size(69, 23);
+            this.btnResetWb.Size = new System.Drawing.Size(69, 35);
             this.btnResetWb.TabIndex = 25;
             this.btnResetWb.Text = "Reset";
-            this.btnResetWb.UseVisualStyleBackColor = true;
+            this.btnResetWb.UseVisualStyleBackColor = false;
             this.btnResetWb.Visible = false;
             this.btnResetWb.Click += new System.EventHandler(this.btnResetWb_Click);
             // 
             // btnReplay
             // 
-            this.btnReplay.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnReplay.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnReplay.BackColor = System.Drawing.Color.Black;
             this.btnReplay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnReplay.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReplay.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnReplay.FlatAppearance.BorderSize = 3;
+            this.btnReplay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnReplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReplay.Font = new System.Drawing.Font("Showcard Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReplay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnReplay.Location = new System.Drawing.Point(244, 295);
@@ -435,6 +466,12 @@
             this.btnRules.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnRules.BackColor = System.Drawing.Color.Snow;
             this.btnRules.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnRules.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRules.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
+            this.btnRules.FlatAppearance.BorderSize = 3;
+            this.btnRules.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.btnRules.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnRules.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRules.Font = new System.Drawing.Font("Showcard Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRules.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnRules.Location = new System.Drawing.Point(753, 41);
@@ -447,19 +484,19 @@
             // 
             // lblRulesContent
             // 
-            this.lblRulesContent.AllowDrop = true;
             this.lblRulesContent.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblRulesContent.AutoEllipsis = true;
-            this.lblRulesContent.BackColor = System.Drawing.Color.White;
-            this.lblRulesContent.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblRulesContent.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblRulesContent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblRulesContent.Font = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRulesContent.ForeColor = System.Drawing.Color.Maroon;
+            this.lblRulesContent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblRulesContent.Location = new System.Drawing.Point(504, 92);
             this.lblRulesContent.Name = "lblRulesContent";
-            this.lblRulesContent.Size = new System.Drawing.Size(343, 135);
+            this.lblRulesContent.Padding = new System.Windows.Forms.Padding(10);
+            this.lblRulesContent.Size = new System.Drawing.Size(343, 112);
             this.lblRulesContent.TabIndex = 28;
             this.lblRulesContent.Text = "Đánh dấu 5 ô liên tiếp theo hàng, cột hoặc đường chéo là THẮNG";
             this.lblRulesContent.Visible = false;
+            this.lblRulesContent.Paint += new System.Windows.Forms.PaintEventHandler(this.lblRulesContent_Paint);
             // 
             // Form_Caro
             // 
